@@ -1,3 +1,5 @@
+#ifndef __SWPSOT_CPP__
+#define __SWPSOT_CPP__
 #include "Sort.h"
 #include <iostream>
 using namespace std;
@@ -10,8 +12,4 @@ bool Sort::Swap(T* item1_, T* item2_){
 	return true;
 }
 
-template bool Sort::Swap<int>(int*, int*);
-template bool Sort::Swap<char>(char*, char*);
-template bool Sort::Swap<double>(double*, double*);
-template bool Sort::Swap<float>(float*, float*);
-
+#endif

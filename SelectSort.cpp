@@ -1,3 +1,5 @@
+#ifndef __SLCTSOT_CPP__
+#define __SLCTSOT_CPP__
 #include "Sort.h"
 #include <stdlib.h>
 
@@ -22,9 +24,4 @@ long long Sort::SelectSort(T* t_, const size_t n, const _FLAG flag){	//O(n^2)	Un
 	return step;
 }
 
-
-template long long Sort::SelectSort<int>(int*, const size_t, const _FLAG);
-template long long Sort::SelectSort<char>(char*, const size_t, const _FLAG);
-template long long Sort::SelectSort<double>(double*, const size_t, const _FLAG);
-template long long Sort::SelectSort<float>(float*, const size_t, const _FLAG);
-
+#endif

@@ -1,3 +1,6 @@
+#ifndef __INSTSOT_CPP__
+#define __INSTSOT_CPP__
+
 #include "Sort.h"
 #include <stdlib.h> 
 
@@ -34,9 +37,4 @@ long long Sort::InsertSort(T* t_, const size_t n, const _FLAG flag){
 	return step;
 }
 
-
-template long long Sort::InsertSort<int>(int*, const size_t, const _FLAG);
-template long long Sort::InsertSort<char>(char*, const size_t, const _FLAG);
-template long long Sort::InsertSort<double>(double*, const size_t, const _FLAG);
-template long long Sort::InsertSort<float>(float*, const size_t, const _FLAG);
-
+#endif

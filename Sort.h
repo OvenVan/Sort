@@ -9,22 +9,28 @@ enum _FLAG{
 	NEG
 };
 
-class Sort {
-public:
+namespace Sort {
 	template<typename T>			
-		static bool Swap(T* item1_, T* item2_);
+		bool Swap(T* item1_, T* item2_);
 	template<typename T>				//O(N^2)		Stable Alg.
-		static long long BubbleSort(T* t_, const size_t n, const _FLAG flag);
+		long long BubbleSort(T* t_, const size_t n, const _FLAG flag);
 	template<typename T>				//O(N^2)		Unstable Alg.
-		static long long SelectSort(T* t_, const size_t n, const _FLAG flag);
+		long long SelectSort(T* t_, const size_t n, const _FLAG flag);
 	template<typename T>				//O(N^2)		Unstable Alg.
-		static long long InsertSort(T* t_, const size_t n, const _FLAG flag);
+		long long InsertSort(T* t_, const size_t n, const _FLAG flag);
 	template<typename T>				//O(NLogN)		Unstable Alg.
-		static long long HeapSort(T* t_, const size_t n, const _FLAG flag);
+		long long HeapSort(T* t_, const size_t n, const _FLAG flag);
 	template<typename T>				//O(NLogN)		Unstable Alg.
-		static long long QuickSort(T* t_, const size_t n, const _FLAG flag);
-};
-
-
+		long long QuickSort(T* t_, const size_t n, const _FLAG flag);
+	template<typename T>
+		long long ShellSort(T* t_, const size_t n, const _FLAG flag);
+}
+#include "BubbleSort.cpp"
+#include "HeapSort.cpp"
+#include "InsertSort.cpp"
+#include "QuickSort-rec.cpp"
+#include "SelectSort.cpp"
+#include "ShellSort.cpp"
+#include "Swap.cpp"
 #endif // !defined(__SORT_H__)
 

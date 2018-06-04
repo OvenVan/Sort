@@ -1,14 +1,8 @@
+#ifndef __QCKSOT_CPP__
+#define __QCKSOT_CPP__
 #include "Sort.h"
 #include <stdlib.h> 
-#include <iostream>
-using namespace std;
 
-template<typename T>
-void print(T* t_, const size_t n){
-	for (int i = 0; i<n; i++)
-		cout<<t_[i]<<", ";
-	cout<<endl;
-}
 
 template<typename T>
 long long Separation(T* t_, T* right, const _FLAG flag, size_t* separa);
@@ -84,9 +78,4 @@ long long Separation(T* t_, T* right, const _FLAG flag, size_t* separa){
 	*separa = left - t_;
 	return step;
 }
-
-
-template long long Sort::QuickSort<int>(int*, const size_t, const _FLAG);
-template long long Sort::QuickSort<char>(char*, const size_t, const _FLAG);
-template long long Sort::QuickSort<double>(double*, const size_t, const _FLAG);
-template long long Sort::QuickSort<float>(float*, const size_t, const _FLAG);
+#endif

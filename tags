@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BubbleSort	BubbleSort.cpp	/^long long Sort::BubbleSort(T* t_, const size_t n, const _FLAG flag){$/;"	f	class:Sort
+HeapSort	HeapSort.cpp	/^long long Sort::HeapSort(T* t_, const size_t n, const _FLAG flag){		\/\/n:1~n$/;"	f	class:Sort
+HeapSwap	HeapSort.cpp	/^bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex, const _FLAG flag, long long* step){$/;"	f
+Heapify	HeapSort.cpp	/^bool Heapify(T* t_, const size_t n, const size_t index, const _FLAG flag, long long* step){		\/\/all :1~$/;"	f
+InsertSort	InsertSort.cpp	/^long long Sort::InsertSort(T* t_, const size_t n, const _FLAG flag){$/;"	f	class:Sort
+IsLeaf	HeapSort.cpp	/^bool IsLeaf(const size_t n, const size_t index){$/;"	f
+MAX	main.cpp	7;"	d	file:
+NEG	Sort.h	/^	NEG$/;"	e	enum:_FLAG
+POS	Sort.h	/^	POS = 0,$/;"	e	enum:_FLAG
+QuickSort	QuickSort-rec.cpp	/^long long Sort::QuickSort(T* t_, const size_t n, const _FLAG flag){$/;"	f	class:Sort
+SelectSort	SelectSort.cpp	/^long long Sort::SelectSort(T* t_, const size_t n, const _FLAG flag){	\/\/O(n^2)	Unstable Alg.$/;"	f	class:Sort
+Separation	QuickSort-rec.cpp	/^long long Separation(T* t_, T* right, const _FLAG flag, size_t* separa){$/;"	f
+Sort	Sort.h	/^namespace Sort {$/;"	n
+Swap	Swap.cpp	/^bool Sort::Swap(T* item1_, T* item2_){$/;"	f	class:Sort
+_FLAG	Sort.h	/^enum _FLAG{$/;"	g
+__BUBLSOT_CPP__	BubbleSort.cpp	2;"	d	file:
+__HEAPSOT_CPP__	HeapSort.cpp	2;"	d	file:
+__INSTSOT_CPP__	InsertSort.cpp	2;"	d	file:
+__QCKSOT_CPP__	QuickSort-rec.cpp	2;"	d	file:
+__SLCTSOT_CPP__	SelectSort.cpp	2;"	d	file:
+__SORT_H__	Sort.h	3;"	d
+__SWPSOT_CPP__	Swap.cpp	2;"	d	file:
+getNonLeafIndex	HeapSort.cpp	/^size_t getNonLeafIndex(const size_t n){$/;"	f
+main	main.cpp	/^int main(int argc, char** argv) {$/;"	f

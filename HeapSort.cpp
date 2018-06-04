@@ -1,14 +1,15 @@
+#ifndef __HEAPSOT_CPP__
+#define __HEAPSOT_CPP__
 #include "Sort.h"
 #include <stdlib.h> 
-long long step = 0;
 
 size_t getNonLeafIndex(const size_t);
 
 template<typename T>
-bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex, const _FLAG flag);
+bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex, const _FLAG flag, long long* step);
 
 template<typename T>
-bool Heapify(T* t_, const size_t n, const size_t index, const _FLAG flag);
+bool Heapify(T* t_, const size_t n, const size_t index, const _FLAG flag, long long* step);
 
 bool IsLeaf(const size_t n, const size_t index);
 
@@ -16,17 +17,19 @@ template<typename T>
 long long Sort::HeapSort(T* t_, const size_t n, const _FLAG flag){		//n:1~n
 	int i;
 
+	long long step = 0;
 	size_t valiableN = n;						//valiableN:1~
 	size_t nonLeafIndex = getNonLeafIndex(n);		//nonLeafIndex:1~
 	T* tend = NULL;
 	if (nonLeafIndex == 0) return true;
 	for (i = nonLeafIndex; i > 0; --i){
-		if(!Heapify(t_, valiableN, i, flag)) return -1;
+		if(!Heapify(t_, valiableN, i, flag, &step)) return -1;
 	}
 	for (valiableN = n - 1; valiableN >= 1; --valiableN){
 		tend = t_ + valiableN;
 		Sort::Swap(t_, tend);
-		if(!Heapify(t_, valiableN, 1, flag)) return -1;
+		++step;
+		if(!Heapify(t_, valiableN, 1, flag, &step)) return -1;
 	}
 
 	return step;
@@ -45,13 +48,13 @@ size_t getNonLeafIndex(const size_t n){
 }
 
 template<typename T>
-bool Heapify(T* t_, const size_t n, const size_t index, const _FLAG flag){		//all :1~
+bool Heapify(T* t_, const size_t n, const size_t index, const _FLAG flag, long long* step){		//all :1~
 	bool swaped = false;
 	size_t spotLightIndex = 0;	//1~
-	swaped = HeapSwap(t_, n, index, &spotLightIndex, flag);
-	(swaped) && (++step);
+	swaped = HeapSwap(t_, n, index, &spotLightIndex, flag, step);
+	(swaped) && (++(*step));
 	if ((swaped) && (!IsLeaf(n, spotLightIndex))){
-		return Heapify(t_, n, spotLightIndex, flag);
+		return Heapify(t_, n, spotLightIndex, flag, step);
 	}
 	return true;
 }
@@ -61,13 +64,14 @@ bool IsLeaf(const size_t n, const size_t index){
 }
 
 template<typename T>
-bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex, const _FLAG flag){
+bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex, const _FLAG flag, long long* step){
 	T* leftLeaf = NULL;
 	T* rightLeaf = NULL;
 	T* spotLight = t_ + index - 1; 
 	*spotLightIndex = index;
 	if (index > n)
 		return false;
+
 	if (n >= (index * 2) + 1){
 		leftLeaf = t_ + (index * 2 - 1);
 		rightLeaf = t_ + (index * 2);
@@ -75,6 +79,7 @@ bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex,
 		   ((flag == NEG) && (*leftLeaf <= *rightLeaf) && (*spotLight > *leftLeaf)))	
 		{
 			Sort::Swap(spotLight, leftLeaf);
+			(*step) += 1;
 			*spotLightIndex = index * 2;
 			return true;
 		}
@@ -82,6 +87,7 @@ bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex,
 		   ((flag == NEG) && (*rightLeaf <= *leftLeaf) && (*spotLight > *rightLeaf)))	
 		{
 			Sort::Swap(spotLight, rightLeaf);
+			(*step) += 1;
 			*spotLightIndex = index * 2 + 1;
 			return true;
 		}
@@ -92,6 +98,7 @@ bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex,
 		rightLeaf = NULL;
 		if ( ((flag == POS) && (*spotLight < *leftLeaf)) || ((flag == NEG) && (*spotLight > *leftLeaf)) ){
 			Sort::Swap(spotLight, leftLeaf);
+			(*step) += 1;
 			*spotLightIndex = index * 2;
 			return true;
 		}
@@ -102,8 +109,4 @@ bool HeapSwap(T* t_, const size_t n, const size_t index, size_t* spotLightIndex,
 	return false;
 
 }
-template long long Sort::HeapSort<int>(int*, const size_t, const _FLAG);
-template long long Sort::HeapSort<char>(char*, const size_t, const _FLAG);
-template long long Sort::HeapSort<double>(double*, const size_t, const _FLAG);
-template long long Sort::HeapSort<float>(float*, const size_t, const _FLAG);
-
+#endif

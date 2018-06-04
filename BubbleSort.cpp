@@ -1,7 +1,10 @@
+#ifndef __BUBLSOT_CPP__
+#define __BUBLSOT_CPP__
+
 #include "Sort.h"
 #include <stdlib.h> 
 
-template<typename T>
+template<typename T> 
 long long Sort::BubbleSort(T* t_, const size_t n, const _FLAG flag){
 	size_t i, j;
 	long long step = 0;
@@ -17,8 +20,4 @@ long long Sort::BubbleSort(T* t_, const size_t n, const _FLAG flag){
 	}
 	return step;
 }
-
-template long long Sort::BubbleSort<int>(int*, const size_t, const _FLAG);
-template long long Sort::BubbleSort<char>(char*, const size_t, const _FLAG);
-template long long Sort::BubbleSort<double>(double*, const size_t, const _FLAG);
-template long long Sort::BubbleSort<float>(float*, const size_t, const _FLAG);
+#endif
